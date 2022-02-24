@@ -3,35 +3,30 @@ const blocks = wrapper.querySelectorAll('.block')
 
 class Block {
   constructor() {
-    this.INIT_ROTATE = 0
-    this.translateX = this.INIT_ROTATE
-    this.startTranslateX  = 0
+    this.INIT_ROTATE_X = 0
+    this.INIT_ROTATE_Y = 0
+    this.rotateX = this.INIT_ROTATE_X
+    this.rotateY = this.INIT_ROTATE_Y
+    this.startRotateX  = 0
+    this.startRotateY  = 0
     this.startTouches = 0
   }
   
   touchStart = (item, event) => {
     this.startTouches = event.changedTouches[0]
-    this.startTranslateX = this.translateX
+    this.startRotateX = this.rotateX
+    this.startRotateY = this.rotateY
   }
 
   touchMove = (block, event) => {
     const moveTouches = event.changedTouches[0]
-    const differenceStartMove = this.startTouches.pageY - moveTouches.pageY
+    const differenceStartMoveX = this.startTouches.pageX - moveTouches.pageX
+    const differenceStartMoveY = this.startTouches.pageY - moveTouches.pageY
 
-    this.translateX = this.startTranslateX + differenceStartMove
+    // this.rotateX = this.startRotateX + differenceStartMoveX
+    this.rotateY = this.startRotateY + differenceStartMoveY
 
-    if (this.translateX <= -200) {
-      this.translateX = -200
-      block.style.transform = `rotate(${ this.translateX }deg)`
-      return
-    }
-    if (this.translateX >= 200) {
-      this.translateX = 200
-      block.style.transform = `rotate(${ this.translateX }deg)`
-      return
-    }
-
-    block.style.transform = `rotate(${ this.translateX }deg)`
+    block.style.transform = `rotate(${ this.rotateY }deg)`
   }
 }
 
