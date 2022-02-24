@@ -1,5 +1,5 @@
-# TEMPLATE
+# ONLY TOUCH ! SWIPE ROTATE axis Y
 🟢RUN:<br>
-https://westerovs.github.com
+https://westerovs.github.io/rotate-swipe-class/
 <br>
 <img src="cover.png">
